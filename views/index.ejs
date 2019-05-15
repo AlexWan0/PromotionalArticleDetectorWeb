@@ -1,0 +1,39 @@
+<html>
+	<head>
+		<!-- Mobile Compatibility -->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<!-- Color Config -->
+		<link rel="stylesheet" href="stylesheets/color.css">
+
+		<!-- Milligram Imports -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
+
+		<link rel="stylesheet" href="stylesheets/milligram.css">
+
+		<!-- JQuery Imports -->
+		<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+		<!-- Tensorflow.js Imports -->
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js"></script>
+
+		<!-- Loading.io Imports -->
+		<link rel="stylesheet" href="stylesheets/loading.css">
+
+		<script src="javascripts/ml.js" type="module"></script>
+
+		<link rel="stylesheet" href="stylesheets/style.css">
+	</head>
+	<body style="position:relative;">
+		<div id="main">
+			<h1 id="title">Promotional Article Detector</h1>
+			<textarea id="input" placeholder="Enter article text here"></textarea>
+			<br>
+			<p id="result" style="display:none;"></p>
+			<button id="start" disabled="true">Loading Model</button>
+			<div class="lds-ring" style="display:none;" id="loadingCircle"><div></div><div></div><div></div><div></div></div>
+		</div>
+	</body>
+</html>
