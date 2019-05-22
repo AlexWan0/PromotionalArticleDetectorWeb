@@ -1,4 +1,6 @@
-var tokenizer = JSON.parse("{}");
+import Tokenizer from "./tokenizer.js"
+const tokenizer = new Tokenizer();
+
 var model = undefined;
 
 async function init(){
@@ -9,8 +11,7 @@ async function init(){
 
 		//var sliced = JSON.parse("{}");
 
-		for(var i = 0; i < 50000; i++)
-			tokenizer[i] = json[i];
+		tokenizer.from_json(json);
 
 		//tokenizer = tokenizerFromJson(JSON.stringify(json));
 
@@ -40,28 +41,9 @@ $(function(){
 					word_tokens.push(seedWordToken);
 			});*/
 
-			var word_tokens = [];
+			var word_tokens = tokenizer.text_to_sequence(input);
 
-			var word_raw = input.split(" ");
-
-			for(var word in word_raw){
-				console.log(word);
-				var token = tokenizer[word];
-				if(token){
-					console.log(token);
-					word_tokens.push(token);
-				}
-			}
-
-			console.log("tl: "+word_tokens.length)
-			var token_len = word_tokens.length;
-			if(token_len < 400){
-				for(var i = 0; i < (400 - token_len); i++){
-					console.log(i);
-					word_tokens.push(0);
-				}
-			}
-			word_tokens = word_tokens.slice(0, 400);
+			word_tokens = tokenizer.pad_sequence(word_tokens, 400);
 			
 			console.log(word_tokens)
 
